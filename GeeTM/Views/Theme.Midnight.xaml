@@ -1,0 +1,67 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Midnight skin.
+         Cooler, bluer and slightly deeper than Aurora, with an indigo accent. Reads calmer on a dark wallpaper.
+
+         Themes carry colour and type only. Every control template lives in
+         Controls.xaml and resolves these keys through DynamicResource, so
+         switching skins restyles the whole app live and no two skins can drift
+         apart structurally. Any new skin only has to define this same key set. -->
+
+    <!-- Raw colours are exported alongside the brushes because the dashboard
+         chart is drawn by SkiaSharp, which needs colour components rather than
+         a WPF brush. -->
+    <Color x:Key="BgColor">#080B14</Color>
+    <Color x:Key="SurfaceColor">#101526</Color>
+    <Color x:Key="AccentColor">#818CF8</Color>
+    <Color x:Key="UpColor">#F472B6</Color>
+    <Color x:Key="DownColor">#60A5FA</Color>
+    <Color x:Key="TextPrimaryColor">#EEF1FA</Color>
+    <Color x:Key="TextMutedColor">#7A83A0</Color>
+    <Color x:Key="BorderColor">#232B45</Color>
+
+    <!-- Base surfaces, lightest-on-top ordering: Bg &lt; Surface &lt; SurfaceAlt &lt; Elevated -->
+    <SolidColorBrush x:Key="BgBrush" Color="#080B14"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#101526"/>
+    <SolidColorBrush x:Key="SurfaceAltBrush" Color="#161C30"/>
+    <SolidColorBrush x:Key="ElevatedBrush" Color="#1A2138"/>
+
+    <!-- Hairlines. BorderStrong is the hover/active state of Border. -->
+    <SolidColorBrush x:Key="BorderBrush" Color="#232B45"/>
+    <SolidColorBrush x:Key="BorderStrongBrush" Color="#323C5C"/>
+
+    <!-- Interaction states -->
+    <SolidColorBrush x:Key="HoverBrush" Color="#1D2540"/>
+    <SolidColorBrush x:Key="PressBrush" Color="#141A2C"/>
+    <SolidColorBrush x:Key="SelectedBrush" Color="#232B52"/>
+
+    <!-- Accent. OnAccentText is the contrast-safe foreground for anything
+         sitting on top of a filled accent surface. -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#818CF8"/>
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#252C55"/>
+    <SolidColorBrush x:Key="OnAccentTextBrush" Color="#0A0D1C"/>
+
+    <!-- Direction colours: the only semantic hues in the palette, so speed
+         reads instantly without a legend. -->
+    <SolidColorBrush x:Key="UpBrush" Color="#F472B6"/>
+    <SolidColorBrush x:Key="DownBrush" Color="#60A5FA"/>
+
+    <!-- Text ramp: Primary for values, Secondary for prose, Muted for labels. -->
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#EEF1FA"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#B4BCD4"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="#7A83A0"/>
+
+    <SolidColorBrush x:Key="DangerBrush" Color="#FB7185"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="#34D399"/>
+
+    <!-- Segoe UI Variable is Windows 11's UI face and falls back cleanly to
+         Segoe UI on Windows 10. Cascadia Mono keeps digits the same width so
+         a changing speed reading never shifts the layout. -->
+    <FontFamily x:Key="UiFont">Segoe UI Variable Text, Segoe UI</FontFamily>
+    <FontFamily x:Key="MonoFont">Cascadia Mono, Consolas</FontFamily>
+
+</ResourceDictionary>
+
+
+

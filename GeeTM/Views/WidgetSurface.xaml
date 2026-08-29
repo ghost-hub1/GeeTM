@@ -1,0 +1,73 @@
+<UserControl x:Class="GeeTM.Views.WidgetSurface"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent"
+             UseLayoutRounding="True"
+             SnapsToDevicePixels="True"
+             TextOptions.TextFormattingMode="Display">
+
+    <!-- The widget's visual tree lives here rather than directly in
+         TaskbarWidget.xaml so that exactly the same visual can be hosted two
+         ways: as the content of the floating layered window, or as the
+         RootVisual of a child HwndSource embedded inside the taskbar. -->
+    <Border x:Name="SurfaceRoot" Background="Transparent">
+        <StackPanel x:Name="ContainerStack" Orientation="Horizontal" SizeChanged="ContainerStack_SizeChanged">
+
+            <Border x:Name="SpeedBorder" CornerRadius="6">
+                <Grid>
+                    <Grid x:Name="SpeedRowsGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="UpRow" Height="*"/>
+                            <RowDefinition x:Name="DownRow" Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="&#x2191;" x:Name="UpGlyph"
+                                   Foreground="{DynamicResource UpBrush}" VerticalAlignment="Center"/>
+                        <StackPanel x:Name="UpValuePanel" Grid.Row="0" Grid.Column="1" Orientation="Horizontal"
+                                    HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock x:Name="UpValueText" Text="0.00"/>
+                            <TextBlock x:Name="UpUnitText" Text="KB/s"/>
+                        </StackPanel>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="&#x2193;" x:Name="DownGlyph"
+                                   Foreground="{DynamicResource DownBrush}" VerticalAlignment="Center"/>
+                        <StackPanel x:Name="DownValuePanel" Grid.Row="1" Grid.Column="1" Orientation="Horizontal"
+                                    HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock x:Name="DownValueText" Text="0.00"/>
+                            <TextBlock x:Name="DownUnitText" Text="KB/s"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- Shown instead of the rows above when this pod is
+                         currently displaying rotated content (IP/location) -
+                         same structure as the Today pod's own layout, so
+                         rotated content always looks identical regardless of
+                         which pod it lands on. Collapsed by default. -->
+                    <StackPanel x:Name="SpeedRotatedPanel" Orientation="Vertical" VerticalAlignment="Center" Visibility="Collapsed">
+                        <TextBlock x:Name="SpeedRotLabelText" Text="" HorizontalAlignment="Center" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock x:Name="SpeedRotValueText" Text="" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border x:Name="GroupGapSpacer" Width="8" Background="Transparent"/>
+
+            <Border x:Name="TotalBorder" CornerRadius="6">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="TodayLabel" Text="Today: " HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock x:Name="TodayValueText" Text="0.0"/>
+                        <TextBlock x:Name="TodayUnitText" Text="MB"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>
+
+
+

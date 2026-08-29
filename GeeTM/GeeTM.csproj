@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Assets\geetm.ico</ApplicationIcon>
+    <AssemblyName>GeeTM</AssemblyName>
+    <Version>5.4.0</Version>
+    <FileVersion>5.4.0.0</FileVersion>
+    <AssemblyVersion>5.4.0.0</AssemblyVersion>
+    <Company>GeeDevv</Company>
+    <Product>GeeTM</Product>
+    <!-- Server GC reserves a heap per core and idles with a much larger working
+         set - the wrong trade for a tray widget. Concurrent GC is left on so
+         collections never show up as a hitch in the UI. -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+    <RootNamespace>GeeTM</RootNamespace>
+    <Platforms>x64</Platforms>
+    <!-- Self-contained single-file publish keeps startup fast and RAM low (no shared runtime probing) -->
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!-- Per-process bandwidth needs an ETW kernel session, which needs admin. -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- CPU/GPU temps, fan speed, etc. Same library TrafficMonitor uses, but wrapped fresh, not copied. -->
+    <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.4" />
+    <!-- Lightweight, GPU-accelerated charts for the dashboard -->
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc2" />
+    <!-- Real per-process bandwidth via ETW (Kernel-Network provider). Requires admin — same as GlassWire/NetLimiter. -->
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" Version="3.1.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- CopyToOutputDirectory so the tray-icon loader can find geetm.ico
+         next to the exe at runtime, not just embedded as a WPF resource. -->
+    <None Include="Assets\geetm.ico"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+    <None Include="Assets\Logo150.png"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+    <None Include="Assets\Logo70.png"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+  </ItemGroup>
+
+</Project>

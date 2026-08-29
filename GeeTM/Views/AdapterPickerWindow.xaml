@@ -1,0 +1,55 @@
+<Window x:Class="GeeTM.Views.AdapterPickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Choose Adapter"
+        Width="420" SizeToContent="Height"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        TextOptions.TextFormattingMode="Display">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="46" ResizeBorderThickness="0"
+                      GlassFrameThickness="0" CornerRadius="0" UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Background="{DynamicResource BgBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Height="46">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,0,0">
+                    <Border Width="8" Height="8" CornerRadius="4" Background="{DynamicResource AccentBrush}"
+                            VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBlock Text="Network adapter" FontFamily="{DynamicResource UiFont}" FontSize="13"
+                               FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Button Content="&#x2715;" Style="{DynamicResource CloseCaptionButton}"
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"
+                        Click="Close_Click" WindowChrome.IsHitTestVisibleInChrome="True"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Margin="20,0,20,20">
+                <TextBlock Style="{DynamicResource Body}" Margin="0,0,0,12"
+                           Text="Choose which connection GeeTM measures. Auto follows whichever adapter is currently busiest."/>
+
+                <RadioButton x:Name="WifiOption" Content="Wi-Fi (default)" GroupName="Adapter"/>
+                <RadioButton x:Name="AutoOption" Content="Auto - busiest active adapter" GroupName="Adapter"/>
+                <RadioButton x:Name="SpecificOption" Content="A specific adapter" GroupName="Adapter" Margin="0,0,0,8"/>
+
+                <ListBox x:Name="AdapterList" Height="170" SelectionChanged="AdapterList_SelectionChanged"/>
+
+                <Button Content="Use this adapter" Click="Use_Click" Style="{DynamicResource PrimaryButton}"
+                        HorizontalAlignment="Stretch" Margin="0,18,0,0" Padding="12,10"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
+
+
+

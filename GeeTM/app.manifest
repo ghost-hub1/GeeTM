@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="GeeTM.app"/>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- Default is now asInvoker (unelevated). Running unelevated is what
+             allows the taskbar-reparenting docking mode to work at all —
+             Windows blocks SetParent across privilege levels (UIPI), so an
+             elevated process can never truly become a child of Explorer's
+             taskbar window. Admin is opt-in: the app relaunches itself
+             elevated only when the user turns on per-process tracking in
+             Settings, and drops back to standalone/unelevated if they turn
+             it back off. -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
+    </windowsSettings>
+  </application>
+</assembly>

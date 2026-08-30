@@ -10,10 +10,11 @@ Most network monitors either bury useful numbers behind a click or clutter your 
 
 - **Live speed at a glance** — upload and download, updating in real time
 - **Daily and monthly usage tracking** — no surprises on a capped connection
-- **A real dashboard** — a throughput chart plus a live top-processes breakdown
-- **Deeply customizable** — colors, corner radius, opacity, fonts, spacing, and more
+- **A real dashboard** — throughput chart, live top-processes breakdown, usage history, and per-app data caps
+- **Security-aware** — optional VPN connect/disconnect alerts and an IP threat score, right in the widget
+- **Deeply customizable** — two visual styles, four color skins, pill shape and borders, fonts, spacing, and more
 - **Two display modes** — a floating widget (recommended) or experimental taskbar embedding
-- **Built to stay out of your way** — auto-hides behind Start and Quick Settings, and never intrudes on your workflow
+- **Built to stay out of your way** — auto-hides behind Start and Quick Settings, or shows a small overlay while you're fullscreen
 
 ## Screenshots
 
@@ -23,7 +24,7 @@ Most network monitors either bury useful numbers behind a click or clutter your 
 
 | Layout | Taskbar widget |
 |---|---|
-| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.heic) |
+| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.png) |
 
 ## Download
 
@@ -37,15 +38,34 @@ Grab the latest build from the [Releases](../../releases) page. Unzip it anywher
 
 **Live monitoring**
 - Real-time upload/download speed in the widget
-- Today and this-month usage totals, with an optional adapter-specific breakdown
+- Today and this-month usage totals
 - Per-process bandwidth tracking (requires running as administrator)
 - A dashboard with a live throughput chart and a top-processes list
+- Automatically picks the busiest active adapter by default (Wi-Fi, Ethernet, or VPN — whichever is actually carrying traffic)
+
+**Rotating pill content**
+- Optionally rotate a pill between its normal reading, your public IP address, and your location (country)
+- Assign IP and location to either pill independently — share one pill or split them across both
+- Optional IP threat score (via your own free [AbuseIPDB](https://www.abuseipdb.com/) API key), shown right alongside the IP
+- Configurable rotation interval, with a smooth fade transition between what's showing
+
+**Security awareness**
+- Optional notification when a VPN connects or disconnects (best-effort adapter detection, not a guarantee)
+- IP threat score integration, off by default and fully optional
+
+**Usage history & data caps**
+- A day-by-day usage history, broken down per network adapter
+- Flags adapters that look local/virtual (Docker, WSL, and similar) rather than real internet traffic
+- Set a daily data cap per application and get notified when it's crossed
 
 **Appearance**
-- Four built-in skins: Aurora, Midnight, Mono, Solar
+- Two visual styles — **Classic** (the original look) and **Premium** (softer glows, layered depth, refined accents) — mix and match with any color skin
+- Four built-in color skins: Aurora, Midnight, Mono, Solar
 - Background modes: match your taskbar exactly, match it a shade darker, or pick a custom color
+- Two pill shapes: two independent rounded pods, or one shape divided by the gap between them (square inner corners, rounded outer corners)
+- Optional pill border, with its own color and thickness, that automatically follows whichever pill shape you've chosen
 - Adjustable corner radius, opacity, and an optional drop shadow (floating mode)
-- A curated set of monospace-friendly fonts for clean digit alignment
+- A curated set of fonts for clean digit alignment
 
 **Layout**
 - Fine-grained control over widget size, padding, and spacing
@@ -55,7 +75,7 @@ Grab the latest build from the [Releases](../../releases) page. Unzip it anywher
 
 **Behavior**
 - Launches with Windows (optional)
-- Hides automatically while anything else is fullscreen
+- Hides automatically while anything else is fullscreen — or shows a small, click-through overlay instead, handy while gaming or streaming
 - Optional click-through mode
 - Settings save atomically, so a crash or power loss can never corrupt your configuration
 
@@ -70,9 +90,9 @@ Grab the latest build from the [Releases](../../releases) page. Unzip it anywher
 Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and Windows (WPF only builds and runs on Windows).
 
 ```powershell
-git clone https://github.com/<your-username>/GeeTM.git
+git clone https://github.com/ghost-hub1/GeeTM.git
 cd GeeTM/GeeTM
-dotnet build
+dotnet build -c Release
 ```
 
 To produce a distributable build yourself:
@@ -91,6 +111,6 @@ Found a bug, or something feel off? Open an issue — this is an actively develo
 
 No License for now.
 
-
+---
 
 Built by [GeeDevv](https://github.com/ghost-hub1) — web development and technical SEO services. If GeeTM saved you a headache, a ⭐ on the repo goes a long way.

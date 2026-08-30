@@ -89,7 +89,7 @@ Found a bug, or something feel off? Open an issue — this is an actively develo
 
 ## License
 
-MIT
+No License for now.
 
 
 

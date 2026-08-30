@@ -23,7 +23,7 @@ Most network monitors either bury useful numbers behind a click or clutter your 
 
 | Layout | Taskbar widget |
 |---|---|
-| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.png) |
+| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.heic) |
 
 ## Download
 
@@ -89,8 +89,8 @@ Found a bug, or something feel off? Open an issue — this is an actively develo
 
 ## License
 
-*(Add your chosen license here — MIT is a common, permissive choice for a project like this if you haven't picked one yet.)*
+MIT
 
----
 
-Built by [GeeDevv](https://github.com/<your-username>) — web development and technical SEO services. If GeeTM saved you a headache, a ⭐ on the repo goes a long way.
+
+Built by [GeeDevv](https://github.com/ghost-hub1) — web development and technical SEO services. If GeeTM saved you a headache, a ⭐ on the repo goes a long way.

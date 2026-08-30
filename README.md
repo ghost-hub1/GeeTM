@@ -24,7 +24,7 @@ Most network monitors either bury useful numbers behind a click or clutter your 
 
 | Layout | Taskbar widget |
 |---|---|
-| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.png) |
+| ![Layout settings](screenshots/geetm_settings_layout_1.png) | ![Taskbar widget](screenshots/geetm_taskbar_widget.heic) |
 
 ## Download
 
